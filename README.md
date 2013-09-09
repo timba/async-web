@@ -1,7 +1,7 @@
 async-web
 =========
 
-This project is an attempt to show difference between async and sync data obtaining approaches.
+This project is an attempt to show difference between async and sync data obtaining approaches in ASP.NET MVC web application.
 
 Init setup
 ==========
@@ -12,12 +12,14 @@ Init setup
 
 3. Database is created and initialized upon web aplication startup (Application_Start) by EF database initializer feature (even if ADO provider selected). The DB is filled by 15000 test records.
 
+4. I used VS 2012, .NET Framework 4.5, MS SQL 2012 Express.
+
 Usage
 =====
 
 Web application starts on computers list.
 
-There is Console application async-clien which loads server with multiple requests. After start the console application waits for a command: 
+There is a console application async-client which loads the server with multiple requests (300 parallel tasks, pause 50 ms between requests). After start the console application waits for a command to enter: 
 
 - "async" + Enter starts load testing using async controller 
 
