@@ -1,0 +1,35 @@
+﻿@model async_web.Models.Computer
+
+@{
+    ViewBag.Title = "Ping";
+}
+
+<h2>Ping</h2>
+
+<fieldset>
+    <legend>Computer</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StatusMessage)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StatusMessage)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Updated)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Updated)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

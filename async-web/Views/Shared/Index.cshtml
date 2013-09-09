@@ -1,0 +1,58 @@
+﻿@model async_web.Models.ComputersViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index from @(Model.IsAsync ? "Async" : "Sync") controller</h2>
+
+<p>
+    @if(Model.IsAsync)
+    { 
+    <text>Async controller | </text>
+    @Html.ActionLink("Sync controller", "Index", "computerssync")
+    } else {
+    @Html.ActionLink("Async controller", "Index", "computersasync") 
+    <text> | Sync controller</text>
+    }
+</p>
+<table border="1" style=" border-collapse:collapse;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Computers.First().Id)
+        </th>
+        <th>
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Computers.First().Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Computers.First().StatusMessage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Computers.First().Updated)
+        </th>
+    </tr>
+
+@foreach (var item in Model.Computers) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.ActionLink("Ping", "ping", new { id = item.Id })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StatusMessage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Updated)
+        </td>
+    </tr>
+}
+
+</table>
